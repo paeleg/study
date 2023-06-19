@@ -1,56 +1,70 @@
-﻿//Task1 Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B
+﻿// Задайте значение N. Напишите программу, которая выведет все натуральные числа в промежутке от N до 1. Выполнить с помощью рекурсии.
 
-// double Step(double num1, double num2)
+// N = 5 -> "5, 4, 3, 2, 1"
+// N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"
+
+
+// int ShowNumbers(int n)
 // {
-//     double pow = Math.Pow(num1, num2);
-//     return pow;
-// }
-// Console.WriteLine("Input num1");
-// int num1 = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine("Input num2");
-// int num2 = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine($"num1 в степени num2: {Step(num1, num2)}");
-
-
-//Task2 Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
-
-// int Summ(int num)
-// {
-//     int summ = 0; 
-//     while (num > 0)
+//     if (n>1)
 //     {
-//         summ = summ+num%10;
-//         num/=10;
+//         Console.Write(n + " ");
+//         ShowNumbers(n-1);
 //     }
-//     return summ;
+//     return 1;
 // }
 
-// Console.WriteLine("Input num");
-// int num = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine($"Сумма чисел в {num}: {Summ(num)}");
+// Console.WriteLine("Input n");
+// int n = Convert.ToInt32(Console.ReadLine());
 
-//Task3 Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран
+// Console.Write(ShowNumbers(n));
 
-// int[] CreateRandomArray(int size)
+// Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
+
+// M = 1; N = 15 -> 120
+// M = 4; N = 8. -> 30
+
+// int FindSum(int N, int M)
 // {
-//     size = 8;
-//     int[] newArray = new int[size];
-//     for(int i = 0; i < 8; i++)
+//     int sum = 0;
+//     while (N<=M)
 //     {
-//         newArray[i] = new Random().Next();
+//         sum+= N;
+//         N++;
 //     }
-// return newArray;
+//     while (M<=N)
+//     {
+//         sum+=M;
+//         M++;
+//     }
+//     return sum;
 // }
 
-// void PrintArray(int[] array)
+// Console.WriteLine("Input N");
+// int N = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input M");
+// int M = Convert.ToInt32(Console.ReadLine());
+
+// Console.Write(FindSum(N, M));
+
+// Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
+// m = 2, n = 3 -> A(m,n) = 9
+// m = 3, n = 2 -> A(m,n) = 29
+
+// int Akerman(int m, int n)
 // {
-//     for(int i = 0; i < 1; i++)
-//     {
-//         Console.Write(array[i] + " ");
-//     }
-// Console.WriteLine();
+//   if (m == 0)
+//     return n + 1;
+//   else
+//     if ((m != 0) && (n == 0))
+//       return Akerman(m - 1, 1);
+//     else
+//       return Akerman(m - 1, Akerman(m, n - 1));
 // }
 
-// int[] myArray = CreateRandomArray(8);
+// Console.WriteLine("Input m");
+// int m = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Input n");
+// int n = Convert.ToInt32(Console.ReadLine());
 
-// PrintArray(myArray);
+// Console.Write(Akerman(m, n));
